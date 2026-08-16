@@ -24,7 +24,8 @@ import {
   Mail,
   Lock,
   Upload,
-  ArrowUpRight
+  ArrowUpRight,
+  Sparkles
 } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, PieChart, Pie, Cell } from "recharts";
 
@@ -40,6 +41,7 @@ interface AdminDashboardProps {
   onUpdateComplaint?: (id: string, updates: { status?: string; adminReply?: string; adminName?: string }) => void;
   onDeleteComplaint?: (id: string) => void;
   onNavigateTab: (tab: string) => void;
+  onOpenAiAssistant?: (mode?: string) => void;
 }
 
 const COLORS = ["#4f46e5", "#7c3aed", "#06b6d4", "#10b981", "#f59e0b"];
@@ -55,7 +57,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   onCreateUser,
   onUpdateComplaint,
   onDeleteComplaint,
-  onNavigateTab
+  onNavigateTab,
+  onOpenAiAssistant
 }) => {
   const [userFilterRole, setUserFilterRole] = useState<string>("all");
   const [userSearchTerm, setUserSearchTerm] = useState("");
@@ -170,6 +173,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
 
         <div className="flex flex-wrap gap-3">
+          {onOpenAiAssistant && (
+            <button
+              onClick={() => onOpenAiAssistant("admin-intel")}
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+              <span>Gemini AI Intelligence & Ops</span>
+            </button>
+          )}
           <button
             onClick={() => onNavigateTab("users")}
             className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2"

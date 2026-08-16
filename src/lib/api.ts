@@ -739,17 +739,22 @@ export async function saveUserApi(user: User): Promise<boolean> {
   }
 }
 
-export async function askAiAssistant(prompt: string, mode: string = "socratic"): Promise<string> {
+export async function askAiAssistant(
+  prompt: string, 
+  mode: string = "general-chat",
+  userRole: string = "STUDENT",
+  contextData?: any
+): Promise<string> {
   try {
     const res = await fetch("/api/ai/assistant", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt, mode })
+      body: JSON.stringify({ prompt, mode, userRole, contextData })
     });
     const data = await res.json();
-    return data.reply || "I am here to guide your learning!";
+    return data.reply || "I am here to assist your educational goals!";
   } catch (err) {
-    return "Great question! To think through this logically: What primary component or function do you believe handles this state transition first?";
+    return "I am here to help you solve problems and build curriculum! Please try asking your question again.";
   }
 }
 

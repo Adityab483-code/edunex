@@ -123,7 +123,7 @@ export const App: React.FC = () => {
 
   // Modal states
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
-  const [aiModalMode, setAiModalMode] = useState<"socratic" | "quiz" | "lesson">("socratic");
+  const [aiModalMode, setAiModalMode] = useState<string>("socratic");
 
   // Data states
   const [courses, setCourses] = useState<Course[]>([]);
@@ -516,7 +516,7 @@ export const App: React.FC = () => {
   };
 
   // Open AI Assistant with specific mode
-  const handleOpenAiAssistant = (mode: "socratic" | "quiz" | "lesson" = "socratic") => {
+  const handleOpenAiAssistant = (mode: string = "general-chat") => {
     setAiModalMode(mode);
     setIsAiModalOpen(true);
   };
@@ -1160,10 +1160,30 @@ export const App: React.FC = () => {
           currentRole={currentRole}
           activeTab={activeTab}
           onTabChange={(tab) => {
-            setActiveTab(tab);
+            if (tab === "ai-assistant") {
+              const roleUpper = String(currentRole).toUpperCase();
+              if (roleUpper === "TEACHER") {
+                handleOpenAiAssistant("teacher-quiz-builder");
+              } else if (roleUpper === "ADMIN") {
+                handleOpenAiAssistant("admin-intel");
+              } else {
+                handleOpenAiAssistant("student-solve");
+              }
+            } else {
+              setActiveTab(tab);
+            }
             setMobileSidebarOpen(false);
           }}
-          onOpenAiAssistant={() => handleOpenAiAssistant("socratic")}
+          onOpenAiAssistant={() => {
+            const roleUpper = String(currentRole).toUpperCase();
+            if (roleUpper === "TEACHER") {
+              handleOpenAiAssistant("teacher-quiz-builder");
+            } else if (roleUpper === "ADMIN") {
+              handleOpenAiAssistant("admin-intel");
+            } else {
+              handleOpenAiAssistant("student-solve");
+            }
+          }}
           mobileOpen={mobileSidebarOpen}
           onCloseMobile={() => setMobileSidebarOpen(false)}
           onLogout={handleLogout}
@@ -1183,7 +1203,7 @@ export const App: React.FC = () => {
                   messages={messages}
                   certificates={certificates}
                   onNavigateTab={setActiveTab}
-                  onOpenAiAssistant={() => handleOpenAiAssistant("socratic")}
+                  onOpenAiAssistant={() => handleOpenAiAssistant("student-solve")}
                 />
               )}
               {String(currentRole).toUpperCase() === "TEACHER" && (
@@ -1194,7 +1214,7 @@ export const App: React.FC = () => {
                   users={users}
                   certificates={certificates}
                   onNavigateTab={setActiveTab}
-                  onOpenAiAssistant={() => handleOpenAiAssistant("lesson")}
+                  onOpenAiAssistant={() => handleOpenAiAssistant("teacher-quiz-builder")}
                   onSendBroadcast={(text, courseId) => {
                     handleSendMessage(currentUser.id, "all", text, true, courseId);
                   }}
@@ -1213,6 +1233,7 @@ export const App: React.FC = () => {
                   }}
                   onDeleteUser={handleDeleteUser}
                   onNavigateTab={setActiveTab}
+                  onOpenAiAssistant={(mode) => handleOpenAiAssistant(mode || "admin-intel")}
                 />
               )}
             </>
@@ -1445,6 +1466,7 @@ export const App: React.FC = () => {
               onUpdateComplaint={handleUpdateComplaint}
               onDeleteComplaint={handleDeleteComplaint}
               onNavigateTab={setActiveTab}
+              onOpenAiAssistant={(mode) => handleOpenAiAssistant(mode || "admin-intel")}
             />
           )}
 
@@ -1542,6 +1564,15 @@ export const App: React.FC = () => {
         onClose={() => setIsAiModalOpen(false)}
         userRole={currentRole}
         initialMode={aiModalMode}
+        currentUser={currentUser}
+        users={users}
+        courses={courses}
+        assignments={assignments}
+        quizzes={quizzes}
+        complaints={complaints}
+        onPublishQuiz={handleCreateQuiz}
+        onPublishAssignment={handleCreateAssignment}
+        onNavigateTab={setActiveTab}
       />
     </div>
   );

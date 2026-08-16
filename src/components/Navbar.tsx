@@ -105,10 +105,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           onClick={onOpenAiAssistant}
           className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold transition-all shadow-sm"
-          title="Open Smart AI Learning Assistant"
+          title="Open EduNex AI Assistant"
         >
           <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400 animate-pulse" />
-          <span className="hidden sm:inline">AI Tutor</span>
+          <span className="hidden sm:inline">
+            {String(currentRole).toUpperCase() === "ADMIN" 
+              ? "AI Admin Intel" 
+              : String(currentRole).toUpperCase() === "TEACHER" 
+              ? "AI Faculty Tools" 
+              : "AI Solver & Chat"}
+          </span>
         </button>
 
         {/* Dark Mode Toggle */}

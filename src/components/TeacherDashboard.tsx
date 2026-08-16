@@ -142,8 +142,8 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             onClick={onOpenAiAssistant}
             className="px-4 py-2.5 rounded-xl bg-white text-purple-800 hover:bg-slate-100 font-bold text-xs shadow-md transition-all flex items-center gap-2"
           >
-            <Sparkles className="w-4 h-4 text-purple-600" />
-            AI Teaching Tools
+            <Sparkles className="w-4 h-4 text-purple-600 animate-pulse" />
+            Gemini AI Quiz & Coursework Builder
           </button>
           <button
             onClick={() => onNavigateTab("courses")}

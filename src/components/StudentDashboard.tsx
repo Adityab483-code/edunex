@@ -88,8 +88,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               onClick={onOpenAiAssistant}
               className="px-4 py-2.5 rounded-xl bg-indigo-900/40 hover:bg-indigo-900/60 text-white border border-white/20 font-bold text-xs backdrop-blur-md transition-all flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              AI Learning Coach
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+              Gemini AI Solver & Chatbot
             </button>
           </div>
         </div>

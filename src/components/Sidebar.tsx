@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         { id: "discussions", label: "Class Discussions", icon: Users },
         { id: "certificates", label: "Earned Certificates", icon: GraduationCap },
         { id: "feedback", label: "Feedback & Complaints", icon: HelpCircle },
-        { id: "ai-assistant", label: "AI Socratic Tutor", icon: Bot },
+        { id: "ai-assistant", label: "AI Solver & Chatbot", icon: Bot },
         { id: "profile", label: "My Profile", icon: User }
       ];
     }
@@ -80,7 +80,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         { id: "reports", label: "Class Reports & Analytics", icon: BarChart3 },
         { id: "certificates", label: "Certificates Center", icon: GraduationCap },
         { id: "feedback", label: "Help & Feedback", icon: HelpCircle },
-        { id: "ai-assistant", label: "AI Lesson Tools", icon: Sparkles },
+        { id: "ai-assistant", label: "AI Quiz & Coursework Builder", icon: Sparkles },
         { id: "profile", label: "Faculty Profile", icon: User }
       ];
     }
@@ -94,6 +94,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       { id: "analytics", label: "System Analytics", icon: TrendingUp },
       { id: "complaints", label: "Feedback & Complaints", icon: HelpCircle },
       { id: "certificates", label: "Certificate Records", icon: GraduationCap },
+      { id: "ai-assistant", label: "AI Intelligence & Operations", icon: Sparkles },
       { id: "settings", label: "Platform Settings", icon: Settings },
       { id: "profile", label: "Admin Profile", icon: User }
     ];
