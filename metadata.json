@@ -1,0 +1,8 @@
+{
+  "name": "EduNex - Smart Learning Platform",
+  "description": "Smart Learning & Skill Development Platform with AI Student Twin, Future Failure Simulator, Targeted Adaptive Interventions, and Real-Time Academic Hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
