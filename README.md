@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# edunex
 
-# Run and deploy your AI Studio app
+**Smart Learning & Skill Development Platform**
 
-This contains everything you need to run your app locally.
+edunex is a modern educational platform connecting **students, teachers,
+and administrators** in one learning ecosystem.
 
-View your app in AI Studio: https://ai.studio/apps/0c8cbac0-bef4-4f11-a032-8c6907615792
+### Key Features
 
-## Run Locally
+-   Role-based Student, Teacher, and Admin dashboards
+-   Courses, lessons, assignments, quizzes, and assessments
+-   Teacher--student messaging and discussion forums
+-   AI learning assistant and smart recommendations
+-   Skill development and personalized learning paths
+-   Project-based learning and team projects
+-   Progress tracking, analytics, and certificates
+-   Responsive UI with dark mode
 
-**Prerequisites:**  Node.js
+### Goal
 
+**Learn → Practice → Build Projects → Develop Skills → Measure Progress
+→ Become Career-Ready**
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### SIH 2026
+
+This project is prepared as a **Smart India Hackathon 2026** idea
+presentation.
+
+> Problem Statement ID, Team ID, and Team Name should be added before
+> official submission.
