@@ -26,5 +26,4 @@ and administrators** in one learning ecosystem.
 This project is prepared as a **Smart India Hackathon 2026** idea
 presentation.
 
-> Problem Statement ID, Team ID, and Team Name should be added before
-> official submission.
+# built by team " BINARY BEAST ".
